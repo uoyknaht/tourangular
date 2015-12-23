@@ -1,0 +1,48 @@
+<div className="dynamic-menu">
+    <div className="row">
+        <form class="col s12" (ngSubmit)="onSubmit()" #placeForm="ngForm" >
+            <h2>Add new place</h2>
+            <div className="row">
+                <div class="input-field col s12">
+                    <input type="text"  [(ngModel)]="place.title" placeholder="Title" required/>
+                    <label for="place-form-title">Title</label>
+                </div>
+            </div>
+<!--             <div className="row">
+                <div class="input-field col s12">
+                    <input type="text" ref="address" />
+                    <label>Address</label>
+                </div>
+                <div class="col s12">
+                    <button type="button" onClick={this.handleSetAdressFromCoordinates}>Set address from coordinates</button>
+                </div>
+            </div>
+            <div className="row">
+                <div class="input-field col s12">
+                    <input type="text"  ref="latitude" />
+                    <label>Latitude</label>
+                </div>
+            </div>
+            <div className="row">
+                <div class="input-field col s12">
+                    <input type="text"  ref="longitude" />
+                    <label>Longitude</label>
+                </div>
+            </div>
+ -->
+
+
+            <br/>
+            <br/>
+            <br/>
+            <div className="row">
+                <div class="input-field col s12">
+                    <!-- <input type="submit" className="waves-effect waves-light btn" value="Save" onClick={this.handleSubmit} /> -->
+                    <button type="submit" class="btn btn-default"
+                            [disabled]="!placeForm.form.valid">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
