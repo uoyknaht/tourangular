@@ -3,7 +3,6 @@ import {Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Injectable} from 'angular2/core'
 import {IPlace} from './../../app.d';
 import {PlaceComponent} from '../place/place.component';
-import {PlaceFormComponent} from '../placeForm/placeForm.component';
 import {PlaceService} from '../../place.service';
 
 @Component({
@@ -22,24 +21,25 @@ import {PlaceService} from '../../place.service';
             position: relative;
             left: -1px;
             top: -1px;
-  }
-  .selected { background-color: #EEE; color: #369; }
+      }
+      .selected { background-color: #EEE; color: #369; }
   `],
-    directives: [ROUTER_DIRECTIVES, PlaceComponent, PlaceFormComponent],
-    providers: [Router, PlaceService]
+    directives: [ROUTER_DIRECTIVES],
+    providers: [PlaceService]
 })
 
 export class PlacesComponent {
-
+    public title;
     public places;
     public selectedPlace: IPlace;    
 
     constructor(private router: Router, private placeService: PlaceService) {
-        //this.places = placeService.places;
+        this.title = 'Places';
+        this.places = placeService.places;
     }
 
     onSelect(place: IPlace) { 
-        //this.selectedPlace = place; 
-        this.router.navigate(['ViewPlace', { id: place.id } );
+        this.selectedPlace = place; 
+        this.router.navigate(['ViewPlace', { id: place.id }]);
     }
 }

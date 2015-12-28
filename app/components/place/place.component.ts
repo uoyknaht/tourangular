@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {Router, RouteParams} from 'angular2/router';
+import {Router, RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
 import {IPlace} from '../../app.d';
 import {PlaceService} from '../../place.service';
 
@@ -7,7 +7,8 @@ import {PlaceService} from '../../place.service';
     selector: 'place',
     //inputs: ['place'],
     templateUrl: 'app/components/place/place.template.html',
-    providers: [Router, RouteParams, PlaceService]
+    directives: [ROUTER_DIRECTIVES],
+    providers: [PlaceService]
 })
 
 export class PlaceComponent {
