@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {Router} from 'angular2/router';
 import {IPlace} from '../../app.d';
 import {PlaceService} from '../../place.service';
 
@@ -13,7 +14,7 @@ export class PlaceFormComponent {
     public place: IPlace;
     public placeForm: any;
 
-    constructor(private placeService: PlaceService) {
+    constructor(private router: Router, private placeService: PlaceService) {
         this.place = {
             id: null,
             title: null
@@ -27,5 +28,11 @@ export class PlaceFormComponent {
             id: null,
             title: null
         };
+
+        this.goToPlacesList();
+    }
+
+    goToPlacesList() {
+        this.router.navigate(['Places']);
     }
 }
