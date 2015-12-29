@@ -1,0 +1,10 @@
+<div>
+    <ul class="heroes">
+        <li *ngFor="#place of places"
+            [class.selected]="place === selectedPlace"
+            (click)="onSelect(place)">
+
+            <span class="badge">{{place.id}}</span> {{place.title}}
+        </li>
+    </ul>
+</div>

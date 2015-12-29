@@ -13,9 +13,7 @@ import {PlacesComponent} from '../places/places.component';
 })
 
 @RouteConfig([
-    { path: '/places', name: 'Places', component: PlacesComponent, useAsDefault: true},
-    { path:'/places/add', name: 'AddPlace', component: PlaceFormComponent},
-    { path:'/places/:id', name: 'ViewPlace', component: PlaceComponent}
+    { path: '/places/...', name: 'Places', component: PlacesComponent, useAsDefault: true}
 ])
 
 export class AppComponent {

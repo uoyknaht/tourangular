@@ -4,7 +4,6 @@ import {IPlace} from '../../app.d';
 import {PlaceService} from '../../place.service';
 
 @Component({
-    selector: 'place',
     //inputs: ['place'],
     templateUrl: 'app/components/place/place.template.html',
     directives: [ROUTER_DIRECTIVES],
