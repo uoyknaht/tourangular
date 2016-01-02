@@ -1,6 +1,10 @@
 export interface IPlace {
-  id: number;
+  _id: number;
+  latitude: number;
+  longitude: number;
   title: string;
+    address: string;
+    categoriesIds?: string[];
 }
 
 export interface IPlaceService {

@@ -11,9 +11,9 @@ import {PlaceService} from '../../place.service';
     providers: [PlaceService]
 })
 
-export class PlacesListComponent implements OnInit {
-    public title;
-    public places;
+export class PlacesListComponent {
+    public title: string;
+    public places: IPlace[];
     public selectedPlace: IPlace;    
 
     constructor(private router: Router, private placeService: PlaceService) {
@@ -26,6 +26,6 @@ export class PlacesListComponent implements OnInit {
 
     onSelect(place: IPlace) { 
         this.selectedPlace = place; 
-        this.router.navigate(['ViewPlace', { id: place.id }]);
+        this.router.navigate(['ViewPlace', { id: place._id }]);
     }
 }

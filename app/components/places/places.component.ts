@@ -14,12 +14,13 @@ import {PlaceComponent} from '../place/place.component';
 @RouteConfig([
     { path: '/', name: 'Places', component: PlacesListComponent, useAsDefault: true},
     { path:'/add', name: 'AddPlace', component: PlaceFormComponent},
-    { path:'/:id', name: 'ViewPlace', component: PlaceComponent}
+    { path:'/:id', name: 'ViewPlace', component: PlaceComponent},
+    { path:'/:id/edit', name: 'EditPlace', component: PlaceFormComponent}
 ])
 
 
 export class PlacesComponent {
-    public title;
+    public title: string;
 
     constructor() {
         this.title = 'Places';

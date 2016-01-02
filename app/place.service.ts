@@ -13,7 +13,7 @@ export class PlaceService {
     }
 
     get(id: number | string) {
-        return placesPromise.then(places => places.filter(h => h.id === +id)[0]);
+        return placesPromise.then(places => places.filter(h => h._id === +id)[0]);
     }    
 
     add(place: any) {
@@ -22,16 +22,14 @@ export class PlaceService {
 }
 
 var PLACES: IPlace[] = [
-    { "id": 11, "title": "Mr. Nice" },
-  { "id": 12, "title": "Narco" },
-  { "id": 13, "title": "Bombasto" },
-  { "id": 14, "title": "Celeritas" },
-  { "id": 15, "title": "Magneta" },
-  { "id": 16, "title": "RubberMan" },
-  { "id": 17, "title": "Dynama" },
-  { "id": 18, "title": "Dr IQ" },
-  { "id": 19, "title": "Magma" },
-  { "id": 20, "title": "Tornadoaaa" }
+    { 
+        _id: 11, 
+    title: "Mr. Nice" ,
+    address: 'aaa',
+    latitude: 51,
+    longitude: 50
+    }
+
 ];
 
 var placesPromise = Promise.resolve(PLACES);
