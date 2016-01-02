@@ -3,6 +3,7 @@ import {IPlace} from './app.d';
 export class PlaceService {
 
     places: IPlace[];
+    placesPromise = Promise.resolve(PLACES);
 
     constructor() {
         this.places = PLACES;
@@ -13,7 +14,7 @@ export class PlaceService {
     }
 
     get(id: number | string) {
-        return placesPromise.then(places => places.filter(h => h._id === +id)[0]);
+        return this.placesPromise.then(places => places.filter(h => h._id === +id)[0]);
     }    
 
     add(place: any) {
@@ -24,12 +25,9 @@ export class PlaceService {
 var PLACES: IPlace[] = [
     { 
         _id: 11, 
-    title: "Mr. Nice" ,
-    address: 'aaa',
-    latitude: 51,
-    longitude: 50
+        title: "Mr. Nice" ,
+        address: 'aaa',
+        latitude: 51,
+        longitude: 50
     }
-
 ];
-
-var placesPromise = Promise.resolve(PLACES);
