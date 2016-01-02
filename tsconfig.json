@@ -1,15 +1,23 @@
 {
   "compilerOptions": {
+    "outDir": "dist/app",
     "target": "ES5",
     "module": "system",
-    "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "moduleResolution": "node",
     "removeComments": false,
-    "noImplicitAny": false
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "filesGlob": [
+    "app/**/*.ts"
+  ],
+  "files": [
+  "app/**/*.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
 }
