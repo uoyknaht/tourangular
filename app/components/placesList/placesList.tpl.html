@@ -1,10 +1,11 @@
 <div>bdd
     <ul class="heroes">
         <li *ngFor="#place of placesModel.places"
-            [class.selected]="place === selectedPlace"
-            (click)="onSelect(place)">
+            [class.selected]="place === selectedPlace">
 
             <span class="badge">{{place._id}}</span> {{place.title}}
+            <a (click)="onView(place)">View</a>
+            <a (click)="onEdit(place)">Edit</a>
         </li>
     </ul>
 

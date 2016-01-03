@@ -1,10 +1,19 @@
 import {Http} from 'angular2/http';
 import {Injectable} from 'angular2/core';
 import 'rxjs/Rx';
+// import { find } from 'lodash/collection';
 import {IPlace} from './app.d';
 
 interface IPlacesModel {
     places: IPlace[];
+}
+
+interface IPlaceEditable {
+    _id?: string;
+    title: string;
+    address: string;
+    latitude: number;
+    longitude: number;
 }
 
 
@@ -41,11 +50,25 @@ export class PlaceService {
         );
     }
 
-    get(id: number | string) {
-        return this.statePromise.then(() => this.placesModel.places.filter(h => h._id === +id)[0]);
+    get(id: number | string): any {
+        return new Promise(resolve => {
+            return this.statePromise.then(() => {
+                this.placesModel.places.forEach((place: IPlace) => {
+                    if (place._id === id) {
+                        resolve(place);
+                    }
+                });
+            });
+        });
     }    
 
-    add(place: any) {
-        this.placesModel.places.push(place);
+    add(place: IPlaceEditable) {
+        return this.statePromise.then(() => {
+            this.http.post('http://localhost:3000/api/places', JSON.stringify(place))
+                .map(res => res.json())
+                .subscribe((place: IPlace) => {
+                    this.placesModel.places.push(place);
+                })            
+        });
     }
 }

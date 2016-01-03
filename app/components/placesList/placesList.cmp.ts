@@ -24,14 +24,13 @@ export class PlacesListComponent {
         this.placesModel = this.placeService.placesModel;
     }    
 
-    onSelect(place: IPlace) { 
+    onView(place: IPlace) { 
         this.selectedPlace = place; 
         this.router.navigate(['ViewPlace', { id: place._id }]);
     }
 
-    on() { 
-        console.log(this.placesModel.places);
-        console.log(this.placeService.placesModel.places);
-        console.log('---');
+    onEdit(place: IPlace) { 
+        this.selectedPlace = place; 
+        this.router.navigate(['EditPlace', { id: place._id }]);
     }
 }

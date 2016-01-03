@@ -1,5 +1,5 @@
 export interface IPlace {
-  _id: number;
+  _id: string;
   latitude: number;
   longitude: number;
   title: string;
