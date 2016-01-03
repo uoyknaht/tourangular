@@ -1,10 +1,10 @@
-import {Component} from 'angular2/core';
+import {Component, Injectable} from 'angular2/core';
 import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Injectable} from 'angular2/core'
 import {IPlace} from './../../app.d';
 import {PlacesListComponent} from '../placesList/placesList.cmp';
 import {PlaceFormComponent} from '../placeForm/placeForm.component';
 import {PlaceComponent} from '../place/place.component';
+import {PlaceService} from '../../place.service';
 
 @Component({
     templateUrl: 'app/components/places/places.template.html',
@@ -18,11 +18,12 @@ import {PlaceComponent} from '../place/place.component';
     { path:'/:id/edit', name: 'EditPlace', component: PlaceFormComponent}
 ])
 
-
 export class PlacesComponent {
     public title: string;
 
-    constructor() {
-        this.title = 'Places';
+    constructor(private placeService: PlaceService) {
+        this.title = 'Places2345';
+        placeService.getAll(false);
     }
+
 }

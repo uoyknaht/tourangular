@@ -7,6 +7,6 @@ export interface IPlace {
     categoriesIds?: string[];
 }
 
-export interface IPlaceService {
-
-}
+// export interface IPlacesWrap {
+//     places: IPlace[];
+// }

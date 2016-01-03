@@ -4,35 +4,34 @@ import {Injectable} from 'angular2/core'
 import {IPlace} from './../../app.d';
 import {PlaceService} from '../../place.service';
 
+interface IPlacesModel {
+    places: IPlace[];
+}
+
 @Component({
     templateUrl: 'app/components/placesList/placesList.tpl.html',
-    directives: [ROUTER_DIRECTIVES],
-    providers: [PlaceService]
+    directives: [ROUTER_DIRECTIVES]
 })
 
 export class PlacesListComponent {
     public title: string;
-    public places: IPlace[];
+    public placesModel: IPlacesModel = {
+        places: []
+    };
     public selectedPlace: IPlace;    
 
     constructor(private router: Router, private placeService: PlaceService) {
-this.places = this.placeService.places;
-        var _this = this;
-console.log('begin3');
-        this.placeService.getAllDb().subscribe((places: IPlace[]) => {
-          console.log(places);
-          _this.places = places;
-      })        
-    }
-
-    ngOnInit() {
-
-
-
+        this.placesModel.places = this.placeService.placesModel.places;
     }    
 
     onSelect(place: IPlace) { 
         this.selectedPlace = place; 
         this.router.navigate(['ViewPlace', { id: place._id }]);
+    }
+
+    on() { 
+        console.log(this.placesModel.places);
+        console.log(this.placeService.placesModel.places);
+        console.log('---');
     }
 }
