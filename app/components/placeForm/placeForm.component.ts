@@ -21,35 +21,35 @@ export class PlaceFormComponent {
 
     };
 
-    constructor(
-        private router: Router, 
-        private routeParams: RouteParams, 
-        private placeService: PlaceService) {
+    // constructor(
+    //     private router: Router, 
+    //     private routeParams: RouteParams, 
+    //     private placeService: PlaceService) {
 
-        this.resetPlace();
-    }
+    //     this.resetPlace();
+    // }
 
-    ngOnInit() {
-        let id = this.routeParams.get('id');
+    // ngOnInit() {
+    //     let id = this.routeParams.get('id');
 
-        if (id) {
-            this.placeService.get(id).then(place => this.place = place);    
-        }
-    }
+    //     if (id) {
+    //         //this.placeService.get(id).then((place: IPlace) => this.place = place);    
+    //     }
+    // }
 
-    onSubmit() {
+    // onSubmit() {
      
-        this.placeService.add(this.place);
-        this.resetPlace();
+    //     this.placeService.add(this.place);
+    //     this.resetPlace();
 
-        this.goToPlacesList();
-    }
+    //     this.goToPlacesList();
+    // }
 
-    goToPlacesList() {
-        this.router.navigate(['Places']);
-    }
+    // goToPlacesList() {
+    //     this.router.navigate(['Places']);
+    // }
 
-    private resetPlace() {
-        this.place = JSON.parse(JSON.stringify(this.emptyPlace));
-    }
+    // private resetPlace() {
+    //     this.place = JSON.parse(JSON.stringify(this.emptyPlace));
+    // }
 }

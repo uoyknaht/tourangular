@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "dist/app",
     "target": "ES5",
     "module": "system",
     "sourceMap": true,
@@ -11,11 +10,8 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "filesGlob": [
-    "app/**/*.ts"
-  ],
   "files": [
-  "app/**/*.ts"
+    "app/**/*.ts"
   ],
   "atom": {
     "rewriteTsconfig": true

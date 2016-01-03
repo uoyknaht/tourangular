@@ -5,7 +5,6 @@ import {IPlace} from './../../app.d';
 import {PlaceService} from '../../place.service';
 
 @Component({
-    selector: 'my-app',
     templateUrl: 'app/components/placesList/placesList.tpl.html',
     directives: [ROUTER_DIRECTIVES],
     providers: [PlaceService]
@@ -17,11 +16,19 @@ export class PlacesListComponent {
     public selectedPlace: IPlace;    
 
     constructor(private router: Router, private placeService: PlaceService) {
-        
+this.places = this.placeService.places;
+        var _this = this;
+console.log('begin3');
+        this.placeService.getAllDb().subscribe((places: IPlace[]) => {
+          console.log(places);
+          _this.places = places;
+      })        
     }
 
     ngOnInit() {
-        this.places = this.placeService.places;
+
+
+
     }    
 
     onSelect(place: IPlace) { 

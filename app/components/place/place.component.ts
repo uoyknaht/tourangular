@@ -22,6 +22,6 @@ export class PlaceComponent {
 
     ngOnInit() {
         let id = this.routeParams.get('id');
-        this.placeService.get(id).then(place => this.place = place);
+        //this.placeService.get(id).then((place: IPlace) => this.place = place);
     }
 }
