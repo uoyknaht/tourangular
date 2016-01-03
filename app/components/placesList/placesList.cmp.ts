@@ -21,7 +21,7 @@ export class PlacesListComponent {
     public selectedPlace: IPlace;    
 
     constructor(private router: Router, private placeService: PlaceService) {
-        this.placesModel.places = this.placeService.placesModel.places;
+        this.placesModel = this.placeService.placesModel;
     }    
 
     onSelect(place: IPlace) { 
